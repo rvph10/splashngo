@@ -1,0 +1,16 @@
+{
+  "name": "splashngo",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/node": "^11.1.6",
+    "astro": "^7.3.5",
+    "resend": "^6.32.0"
+  }
+}
