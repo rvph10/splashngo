@@ -7,7 +7,7 @@ import FaqSection from '../components/FaqSection.astro';
 import Icon from '../components/Icon.astro';
 import { faqs } from '../data/content';
 import { getServiceGroups } from '../lib/services';
-import recover from '../assets/images/services/recover-your-time.png';
+import recover from '../assets/images/photos/vitres.webp';
 
 const groups = await getServiceGroups();
 
@@ -48,7 +48,7 @@ const benefits = [
 
   <section class="section recover">
     <div class="container recover__inner">
-      <MaskedImage class="recover__img" src={recover} alt="Matériel de nettoyage prêt pour une intervention" shape="cols-6-d" sizes="(min-width: 1200px) 611px, 100vw" />
+      <MaskedImage class="recover__img" src={recover} alt="Nettoyage de vitres sur une terrasse" shape="cols-6-d" sizes="(min-width: 1200px) 611px, 100vw" />
       <div class="recover__content">
         <div class="recover__title" data-reveal>
           <AnimatedHeading class="h2" text="Simple du début à la fin" />

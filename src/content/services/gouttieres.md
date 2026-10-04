@@ -6,7 +6,7 @@ category: exterieur
 alsoIn: []
 order: 5
 icon: ../../assets/images/services/icon-gouttieres.png
-image: ../../assets/images/services/gouttieres.jpg
+image: ../../assets/images/photos/gouttieres.webp
 included:
   - Retrait des feuilles, mousses et débris
   - Rinçage des gouttières

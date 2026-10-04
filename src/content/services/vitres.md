@@ -7,7 +7,7 @@ alsoIn:
   - professionnels
 order: 3
 icon: ../../assets/images/services/icon-vitres.png
-image: ../../assets/images/services/vitres.jpg
+image: ../../assets/images/photos/vitres.webp
 included:
   - Vitres intérieures et extérieures
   - Châssis et appuis de fenêtre

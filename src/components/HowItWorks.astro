@@ -39,7 +39,8 @@ const { accent = 'accent', showStats = false, titleGap = 24 } = Astro.props;
               src={step.image}
               alt=""
               class:list={[i === 0 && 'is-active']}
-              widths={[600, 1200, 2352].filter((w) => w <= step.image.width)}
+              widths={[600, 1200, 2352].filter((w) => w < step.image.width).concat(step.image.width)}
+              quality={85}
               sizes="(min-width: 1200px) 1176px, calc(100vw - 40px)"
             />
           ))}

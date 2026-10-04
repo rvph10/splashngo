@@ -69,6 +69,8 @@ const { title, summary, description, image, included, faq } = service.data;
   .service__intro .section-title { gap: 16px; }
   .service__intro .section-title p { max-width: 422px; }
   .service__image { aspect-ratio: 4704 / 2840; }
+  /* Keep the top of the photo (heads, Splashngo logo on shirts) when the frame crops it. */
+  .service__image :global(img) { object-position: center top; }
 
   .service__bottom { display: flex; align-items: flex-start; gap: 80px; }
   .service__body { display: flex; flex-direction: column; align-items: flex-start; gap: 30px; max-width: 676px; }

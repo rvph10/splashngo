@@ -13,9 +13,10 @@ interface Props {
   loading?: 'lazy' | 'eager';
 }
 const { src, alt, shape, sizes, zoom = true, class: className, loading = 'lazy', ...attrs } = Astro.props;
-const widths = [400, 800, 1200, 1600, 2400].filter((w) => w <= src.width);
+// Standard sizes up to the source width, plus the full-size original for sharp retina rendering.
+const widths = [...new Set([400, 800, 1200, 1600, 2400].filter((w) => w < src.width).concat(src.width))];
 ---
 
 <div class:list={['shape', className]} style={`--shape:url('/shapes/${shape}.svg')`} data-zoom={zoom ? '' : undefined} {...attrs}>
-  <Image src={src} alt={alt} widths={widths.length ? widths : [src.width]} sizes={sizes} loading={loading} />
+  <Image src={src} alt={alt} widths={widths} sizes={sizes} quality={85} loading={loading} />
 </div>

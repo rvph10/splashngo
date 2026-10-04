@@ -6,7 +6,7 @@ category: exterieur
 alsoIn: []
 order: 6
 icon: ../../assets/images/services/icon-terrasses-balcons.png
-image: ../../assets/images/services/terrasses-balcons.png
+image: ../../assets/images/photos/terrasses-balcons.webp
 included:
   - Démoussage
   - Nettoyage en profondeur

@@ -12,13 +12,13 @@ import { site } from '../data/site';
 import { faqs } from '../data/content';
 import { getServices } from '../lib/services';
 
-import hero from '../assets/images/home/hero.png';
-import vetted1 from '../assets/images/home/vetted-1.png';
-import vetted2 from '../assets/images/home/vetted-2.png';
+import hero from '../assets/images/photos/panneaux-solaires.webp';
+import vetted1 from '../assets/images/photos/vitres.webp';
+import vetted2 from '../assets/images/photos/gouttieres.webp';
 import arrow from '../assets/images/home/arrow.png';
 import saveTime1 from '../assets/images/home/save-time-1.png';
 import saveTime2 from '../assets/images/home/save-time-2.jpg';
-import saveTime3 from '../assets/images/home/save-time-3.jpg';
+import saveTime3 from '../assets/images/photos/bureaux-commerces.webp';
 import reliable from '../assets/images/home/reliable.png';
 
 const services = (await getServices()).slice(0, 6);
@@ -37,7 +37,7 @@ const reasons = [
   {
     title: 'Particuliers et professionnels',
     text: "Nous intervenons chez les propriétaires et locataires comme pour les commerces, les entreprises et les syndics d'immeuble.",
-    image: saveTime3, alt: 'Pièce vide après une remise en état',
+    image: saveTime3, alt: "Nettoyage du sol d'un bureau avec une autolaveuse",
   },
 ];
 
@@ -54,7 +54,7 @@ const reliableList = [
   <section class="section hero" data-zone="accueil">
     <div class="hero__bg" aria-hidden="true">
       <div class="hero__photo" data-parallax>
-        <Image src={hero} alt="" widths={[800, 1440, 2160, 2880]} sizes="100vw" loading="eager" fetchpriority="high" />
+        <Image src={hero} alt="" widths={[800, 1200, hero.width]} sizes="100vw" quality={85} loading="eager" fetchpriority="high" />
       </div>
       <div class="hero__shade"></div>
       <div class="hero__blur"></div>
@@ -96,13 +96,13 @@ const reliableList = [
   <section class="section vetted">
     <div class="container vetted__inner">
       <div class="vetted__left" data-reveal style="--from-y:0px">
-        <MaskedImage class="vetted__img1" src={vetted1} alt="Nettoyage d'un plan de travail de cuisine" shape="rows-5-a" sizes="(min-width: 768px) 427px, 100vw" />
+        <MaskedImage class="vetted__img1" src={vetted1} alt="Nettoyage de vitres avec une raclette" shape="rows-5-a" sizes="(min-width: 768px) 427px, 100vw" />
       </div>
       <Image class="vetted__arrow" src={arrow} alt="" width={338} />
       <div class="vetted__right">
         <p class="h5 vetted__text" data-reveal>Chaque intervention commence par un devis clair et se termine par un contrôle du travail fait. Nous utilisons un matériel adapté à chaque surface, des vitres aux panneaux solaires, et nous respectons votre logement ou vos locaux comme si c'étaient les nôtres.</p>
         <div data-reveal style="--from-y:0px">
-          <MaskedImage class="vetted__img2" src={vetted2} alt="Nettoyage sous un évier de cuisine" shape="cols-5-a" sizes="(min-width: 768px) 540px, 100vw" />
+          <MaskedImage class="vetted__img2" src={vetted2} alt="Nettoyage d'une toiture et des gouttières au jet" shape="cols-5-a" sizes="(min-width: 768px) 540px, 100vw" />
         </div>
       </div>
     </div>
@@ -116,7 +116,7 @@ const reliableList = [
     <div class="container save-time__inner">
       <div class="save-time__media shape" style="--shape:url('/shapes/cols-6-a.svg')" data-reveal>
         {reasons.map((item, i) => (
-          <Image src={item.image} alt={item.alt} class:list={[i === 0 && 'is-active']} widths={[611, 1222]} sizes="(min-width: 1200px) 611px, 100vw" />
+          <Image src={item.image} alt={item.alt} class:list={[i === 0 && 'is-active']} widths={[611, 1222]} sizes="(min-width: 1200px) 611px, 100vw" quality={85} />
         ))}
       </div>
       <div class="save-time__content">

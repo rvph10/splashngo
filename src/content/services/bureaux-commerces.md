@@ -6,7 +6,7 @@ category: professionnels
 alsoIn: []
 order: 7
 icon: ../../assets/images/services/icon-bureaux-commerces.png
-image: ../../assets/images/services/bureaux-commerces.jpg
+image: ../../assets/images/photos/bureaux-commerces.webp
 included:
   - Postes de travail et surfaces
   - Sanitaires et cuisine

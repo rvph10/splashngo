@@ -6,7 +6,7 @@ category: exterieur
 alsoIn: []
 order: 4
 icon: ../../assets/images/services/icon-panneaux-solaires.png
-image: ../../assets/images/services/panneaux-solaires.jpg
+image: ../../assets/images/photos/panneaux-solaires.webp
 included:
   - Nettoyage des panneaux sans produit agressif
   - Retrait des mousses et dépôts
