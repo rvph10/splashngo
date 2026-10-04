@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import AnimatedHeading from './AnimatedHeading.astro';
+import Button from './Button.astro';
+import spray from '../assets/images/cta/spray.png';
+import trash from '../assets/images/cta/trash.png';
+
+---
+
+<section class="section cta edge-top edge-bottom" data-zone="bandeau-devis">
+  <div class="container cta__inner" data-reveal>
+    <div class="cta__text">
+      <AnimatedHeading class="h2" text="Un projet de nettoyage ?" />
+      <p>Décrivez-nous votre besoin, ajoutez quelques photos si possible, et recevez un devis adapté sous 48 heures.</p>
+    </div>
+    <Button href="/contact" label="Demander un devis" icon="mail-outline" />
+  </div>
+  <Image class="cta__art cta__art--1" src={spray} alt="" width={190} height={190} loading="lazy" />
+  <Image class="cta__art cta__art--2" src={trash} alt="" width={151} height={151} loading="lazy" />
+</section>
+
+<style>
+  .cta {
+    --edge-color: var(--color-accent);
+    --bump: calc(100vw / 26);
+    background: var(--color-accent);
+    padding-block: 135px 160px;
+    text-align: center;
+  }
+  .cta__inner { display: flex; flex-direction: column; align-items: center; gap: 26px; max-width: 609px; }
+  .cta__text { display: flex; flex-direction: column; gap: 16px; }
+  .cta__text p { font-size: 18px; font-weight: 400; line-height: 1.56; opacity: 0.58; }
+  .cta__art { position: absolute; height: auto; translate: -50% -50%; pointer-events: none; }
+  .cta__art--1 { left: 160px; top: 162px; width: 154px; rotate: -15.4deg; }
+  .cta__art--2 { left: calc(100% - 172px); top: calc(100% - 116px); width: 128px; rotate: 11.3deg; }
+
+  @media (max-width: 1199.98px) {
+    .cta { padding-block: 100px; --bump: 45.5px; }
+    .cta__art--1 { left: 67px; top: 49px; width: 71px; }
+    .cta__art--2 { left: calc(100% - 90px); top: calc(100% - 59px); width: 75px; }
+  }
+  @media (max-width: 767.98px) {
+    .cta { padding-block: 60px; --bump: 45px; }
+    .cta__inner { max-width: none; }
+    .cta__art { display: none; }
+  }
+</style>

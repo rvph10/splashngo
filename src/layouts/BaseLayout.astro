@@ -1,0 +1,82 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CtaSection from '../components/CtaSection.astro';
+import { site } from '../data/site';
+
+interface Props {
+  /** Page heading; becomes "<heading> | Splashngo". Omit to use the site title. */
+  title?: string;
+  description?: string;
+  /** Header style: "dark" = white text over a photo (homepage), "light" = frosted white bar. */
+  header?: 'dark' | 'light';
+}
+
+const { title, description = site.description, header = 'light' } = Astro.props;
+const pageTitle = title ? `${title} | ${site.name}` : site.title;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/og-image.png', Astro.site);
+const { umami } = site;
+// Only count visits on the production domain (not localhost or previews).
+const trackedDomains = Astro.site ? [Astro.site.hostname, Astro.site.hostname.replace(/^www\./, '')].join(',') : undefined;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content={site.preview ? 'noindex, nofollow' : 'max-image-preview:large'} />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preload" href="/fonts/plus-jakarta-sans-500.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/plus-jakarta-sans-700.woff2" as="font" type="font/woff2" crossorigin />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_BE" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {umami.src && umami.websiteId && (
+      <script is:inline defer src={umami.src} data-website-id={umami.websiteId} data-domains={trackedDomains}></script>
+    )}
+
+    <!-- Animations start hidden only when JavaScript is available. -->
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
+    <Header theme={header} />
+    <main id="main">
+      <slot />
+    </main>
+    <CtaSection />
+    <Footer />
+
+    <script>
+      import '../scripts/motion';
+      import '../scripts/analytics';
+    </script>
+  </body>
+</html>
+
+<style>
+  .skip-link {
+    position: absolute; z-index: 100; top: 8px; left: 8px; padding: 8px 14px;
+    border-radius: 8px; background: var(--color-ink); color: #fff;
+    transform: translateY(-200%);
+  }
+  .skip-link:focus { transform: none; }
+</style>

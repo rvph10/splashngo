@@ -1,0 +1,72 @@
+---
+import Icon from './Icon.astro';
+import logo from '../assets/images/brand/logo.svg';
+import { site, footerNav, socials } from '../data/site';
+---
+
+<footer class="section footer" data-zone="pied-de-page">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__about">
+        <p>Nettoyage intérieur, extérieur et professionnel pour les particuliers et les entreprises, {site.area.phrase}.</p>
+        <a href="/" aria-label={`${site.name}, accueil`}>
+          <img src={logo.src} alt="" width="176" height="38" loading="lazy" />
+        </a>
+      </div>
+      <nav class="footer__nav" aria-label="Pied de page">
+        {footerNav.map((col) => (
+          <div class="footer__col">
+            <p>{col.title}</p>
+            <ul>
+              {col.links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+            </ul>
+          </div>
+        ))}
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <p>© {new Date().getFullYear()} {site.name}. Tous droits réservés.</p>
+      <ul class="footer__socials">
+        {socials.map((s) => (
+          <li><a href={s.href} aria-label={s.label}><Icon name={s.icon} size={21} /></a></li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer { padding-block: 120px 56px; }
+  .footer__top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .footer__about { display: flex; flex-direction: column; gap: 48px; max-width: 389px; }
+  .footer__about p, .footer__col > p { font-size: 18px; font-weight: 400; line-height: 1.56; color: var(--color-muted); }
+  .footer__about img { width: 176px; height: 38px; object-fit: contain; }
+  .footer__nav { display: flex; justify-content: space-between; width: 100%; max-width: 600px; }
+  .footer__col { display: flex; flex-direction: column; gap: 20px; }
+  .footer__col ul { display: flex; flex-direction: column; gap: 16px; padding: 0; list-style: none; }
+  .footer__col a { font-size: 16px; font-weight: 500; line-height: 1.56; transition: color 0.3s; }
+  .footer__col a:hover, .footer__col a:focus-visible { color: var(--color-highlight); }
+  .footer__bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 79px; padding-top: 39px; border-top: 1px solid var(--color-line);
+  }
+  .footer__bottom p { color: var(--color-muted); }
+  .footer__socials { display: flex; gap: 14px; padding: 0; list-style: none; }
+
+  @media (max-width: 1199.98px) {
+    .footer { padding-block: 80px 50px; }
+    .footer__about { gap: 32px; max-width: 34%; }
+    .footer__nav { max-width: 58%; }
+    .footer__bottom { margin-top: 46px; }
+  }
+  @media (max-width: 767.98px) {
+    .footer { padding-block: 70px 40px; }
+    .footer__top { flex-direction: column; gap: 30px; }
+    .footer__about { flex-direction: column-reverse; gap: 20px; max-width: none; }
+    .footer__nav { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: none; }
+    .footer__col { gap: 18px; }
+    .footer__col ul { gap: 14px; }
+    .footer__col:last-child { grid-column: 1 / -1; }
+    .footer__bottom { flex-direction: column; align-items: flex-start; gap: 16px; margin-top: 24px; padding-top: 23px; }
+  }
+</style>
