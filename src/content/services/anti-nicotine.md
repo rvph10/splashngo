@@ -6,7 +6,7 @@ category: logement
 alsoIn: []
 order: 2
 icon: ../../assets/images/services/icon-anti-nicotine.png
-image: ../../assets/images/services/anti-nicotine.jpg
+image: ../../assets/images/photos/plafond.webp
 included:
   - Murs et plafonds lessivés
   - Portes, châssis et plinthes

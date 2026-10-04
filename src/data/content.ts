@@ -1,7 +1,7 @@
 // Content shared by several pages. Writing rules: French, no en/em dashes,
 // plain space before ? ! : ; (frenchSpacing() makes it non-breaking).
-import step1 from '../assets/images/home/step-1.png';
-import step2 from '../assets/images/home/step-2.jpg';
+import step1 from '../assets/images/photos/photo-gouttiere.webp';
+import step2 from '../assets/images/photos/inspection.webp';
 import step3 from '../assets/images/photos/terrasses-balcons.webp';
 
 export const categories = [

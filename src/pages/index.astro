@@ -14,12 +14,12 @@ import { getServices } from '../lib/services';
 
 import hero from '../assets/images/photos/panneaux-solaires.webp';
 import vetted1 from '../assets/images/photos/vitres.webp';
-import vetted2 from '../assets/images/photos/gouttieres.webp';
+import vetted2 from '../assets/images/photos/inspection.webp';
 import arrow from '../assets/images/home/arrow.png';
-import saveTime1 from '../assets/images/home/save-time-1.png';
-import saveTime2 from '../assets/images/home/save-time-2.jpg';
+import saveTime1 from '../assets/images/photos/gouttieres.webp';
+import saveTime2 from '../assets/images/photos/salon.webp';
 import saveTime3 from '../assets/images/photos/bureaux-commerces.webp';
-import reliable from '../assets/images/home/reliable.png';
+import reliable from '../assets/images/photos/plan-de-travail.webp';
 
 const services = (await getServices()).slice(0, 6);
 
@@ -27,12 +27,12 @@ const reasons = [
   {
     title: 'Un seul contact pour tout',
     text: "Logement, vitres, gouttières, panneaux solaires ou bureaux : vous confiez tous vos besoins de nettoyage à la même équipe, avec un seul devis.",
-    image: saveTime1, alt: "Nettoyage d'un évier de cuisine",
+    image: saveTime1, alt: "Nettoyage d'une toiture au-dessus des gouttières",
   },
   {
     title: 'Un devis clair sous 48 heures',
     text: "Vous savez exactement ce qui sera fait et à quel prix avant toute intervention. Pas de mauvaise surprise sur la facture.",
-    image: saveTime2, alt: "Nettoyage d'un plan de travail",
+    image: saveTime2, alt: "Aspiration d'un tapis dans un salon",
   },
   {
     title: 'Particuliers et professionnels',
@@ -102,7 +102,7 @@ const reliableList = [
       <div class="vetted__right">
         <p class="h5 vetted__text" data-reveal>Chaque intervention commence par un devis clair et se termine par un contrôle du travail fait. Nous utilisons un matériel adapté à chaque surface, des vitres aux panneaux solaires, et nous respectons votre logement ou vos locaux comme si c'étaient les nôtres.</p>
         <div data-reveal style="--from-y:0px">
-          <MaskedImage class="vetted__img2" src={vetted2} alt="Nettoyage d'une toiture et des gouttières au jet" shape="cols-5-a" sizes="(min-width: 768px) 540px, 100vw" />
+          <MaskedImage class="vetted__img2" src={vetted2} alt="Contrôle du travail réalisé, fiche en main, devant une maison" shape="cols-5-a" sizes="(min-width: 768px) 540px, 100vw" />
         </div>
       </div>
     </div>
@@ -148,7 +148,7 @@ const reliableList = [
           {reliableList.map((item) => <li><Icon name="check" />{item}</li>)}
         </ul>
       </div>
-      <MaskedImage class="reliable__img" src={reliable} alt="Nettoyage d'un mur" shape="rows-5-b" sizes="(min-width: 1200px) 610px, 100vw" />
+      <MaskedImage class="reliable__img" src={reliable} alt="Plan de travail essuyé avec une microfibre" shape="rows-5-b" sizes="(min-width: 1200px) 610px, 100vw" />
     </div>
   </section>
 

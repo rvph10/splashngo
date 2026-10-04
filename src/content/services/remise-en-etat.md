@@ -6,7 +6,7 @@ category: logement
 alsoIn: []
 order: 1
 icon: ../../assets/images/services/icon-remise-en-etat.png
-image: ../../assets/images/services/remise-en-etat.jpg
+image: ../../assets/images/photos/cuisine.webp
 included:
   - Cuisine dégraissée, électroménager compris (four, hotte, frigo)
   - Salle de bain et sanitaires détartrés

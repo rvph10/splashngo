@@ -6,7 +6,7 @@ category: professionnels
 alsoIn: []
 order: 8
 icon: ../../assets/images/services/icon-parties-communes.png
-image: ../../assets/images/services/parties-communes.jpg
+image: ../../assets/images/photos/hall-immeuble.webp
 included:
   - Halls d'entrée et paliers
   - Escaliers et rampes
