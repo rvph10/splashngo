@@ -6,9 +6,9 @@ const WHATSAPP_MESSAGE = 'Bonjour Splashngo, je souhaite un devis pour ';
 
 export const site = {
   name: 'Splashngo',
-  title: 'Splashngo | Nettoyage intérieur, extérieur et professionnel à Bruxelles',
+  title: 'Splashngo | Société de nettoyage à Bruxelles',
   description:
-    'Splashngo nettoie logements, extérieurs et locaux professionnels à Bruxelles et dans ses environs : remise en état, vitres, gouttières, panneaux solaires, bureaux. Devis sous 48 heures.',
+    "Société de nettoyage à Bruxelles et environs : remise en état, vitres, gouttières, panneaux solaires, terrasses, bureaux. Devis sous 48 heures.",
   phone: { label: '+32 469 17 53 54', href: `tel:${PHONE}` },
   whatsapp: { label: 'WhatsApp', href: `https://wa.me/${PHONE.slice(1)}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}` },
   // TODO: placeholder address, replace with the real one

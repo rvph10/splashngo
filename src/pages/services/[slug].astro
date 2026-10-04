@@ -7,7 +7,9 @@ import Button from '../../components/Button.astro';
 import Icon from '../../components/Icon.astro';
 import MaskedImage from '../../components/MaskedImage.astro';
 import FaqSection from '../../components/FaqSection.astro';
+import { getImage } from 'astro:assets';
 import { site } from '../../data/site';
+import { breadcrumbs, service as serviceSchema } from '../../lib/schema';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
@@ -19,9 +21,20 @@ await render(service);
 // Markdown body with French spacing applied (content files use plain spaces).
 const body = frenchSpacing(service.rendered?.html ?? '');
 const { title, summary, description, image, included, faq } = service.data;
+const base = Astro.site!;
+const url = new URL(`/services/${service.id}`, base).href;
+const schemaImage = await getImage({ src: image, width: 1200, format: 'jpeg' });
+const schema = [
+  serviceSchema(base, { title, description, url, image: new URL(schemaImage.src, base).href }),
+  breadcrumbs([
+    { name: 'Accueil', url: new URL('/', base).href },
+    { name: 'Services', url: new URL('/services', base).href },
+    { name: title, url },
+  ]),
+];
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={`${title} à Bruxelles`} description={description} schema={schema}>
   <section class="section service">
     <div class="container service__inner">
       <div class="service__top">

@@ -1,7 +1,7 @@
 ---
 title: Nettoyage anti-nicotine
 summary: Traces jaunes et odeur de tabac retirées des murs, plafonds et surfaces d'un logement où l'on a fumé.
-description: Nettoyage anti-nicotine à Bruxelles et environs. Traces jaunes, dépôts de goudron et odeur de tabac retirés des murs, plafonds, portes et surfaces. Devis sous 48 h.
+description: "Nettoyage anti-nicotine à Bruxelles : traces jaunes et odeur de tabac retirées des murs, plafonds et surfaces avant peinture, vente ou location."
 category: logement
 alsoIn: []
 order: 2

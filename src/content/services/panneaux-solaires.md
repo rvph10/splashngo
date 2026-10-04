@@ -1,7 +1,7 @@
 ---
 title: Panneaux solaires
 summary: Des panneaux propres pour retrouver leur rendement.
-description: Nettoyage de panneaux solaires à Bruxelles et environs. Poussière, pollen, mousse et fientes retirés sans produit agressif pour retrouver le rendement. Devis sous 48 h.
+description: "Nettoyage de panneaux solaires à Bruxelles sans produit agressif : poussière, mousse et fientes retirées pour retrouver le rendement. Devis sous 48 h."
 category: exterieur
 alsoIn: []
 order: 4

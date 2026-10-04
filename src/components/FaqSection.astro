@@ -2,6 +2,7 @@
 import AnimatedHeading from "./AnimatedHeading.astro";
 import Faq from "./Faq.astro";
 import { frenchSpacing } from "../lib/typography";
+import { faqPage, toJsonLd } from "../lib/schema";
 
 interface Props {
   title: string;
@@ -25,6 +26,7 @@ const { title, description, items, id, titleGap = 24 } = Astro.props;
       {description && <p class="lead">{frenchSpacing(description)}</p>}
     </div>
     <Faq items={items} />
+    <script is:inline type="application/ld+json" set:html={toJsonLd(faqPage(items))} />
   </div>
 </section>
 

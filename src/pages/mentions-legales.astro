@@ -13,6 +13,9 @@ import { company, host, legalUpdatedAt } from '../data/legal';
     Numéro de TVA&nbsp;: {company.vat}
   </p>
 
+  <h2>Directeur de la publication</h2>
+  <p>{company.director}, en sa qualité de gérant de {company.name}.</p>
+
   <h2>Contact</h2>
   <p>
     E-mail&nbsp;: <a href={site.email.href}>{site.email.label}</a><br />
@@ -21,7 +24,7 @@ import { company, host, legalUpdatedAt } from '../data/legal';
 
   <h2>Hébergement</h2>
   <p>
-    Le site est conçu, hébergé et maintenu par {host.name}, {host.description}.<br />
+    Le site est conçu, hébergé et maintenu par {host.name}, {host.description} (<a href={host.website}>upintown.dev</a>).<br />
     Serveurs&nbsp;: {host.server}
   </p>
 

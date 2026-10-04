@@ -1,7 +1,7 @@
 ---
 title: Nettoyage de vitres
 summary: Vitres, châssis et vitrines pour les particuliers et les professionnels.
-description: Nettoyage de vitres, châssis, vérandas et vitrines à Bruxelles et environs, pour particuliers et professionnels. Passage ponctuel ou régulier, devis sous 48 h.
+description: "Nettoyage de vitres, châssis, vérandas et vitrines à Bruxelles et environs, pour particuliers et professionnels. Passage ponctuel ou régulier."
 category: exterieur
 alsoIn:
   - professionnels

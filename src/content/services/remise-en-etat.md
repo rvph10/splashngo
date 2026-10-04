@@ -1,7 +1,7 @@
 ---
 title: Remise en état avant vente ou location
 summary: Un nettoyage complet du logement avant une vente, une mise en location ou un état des lieux de sortie.
-description: Nettoyage complet de maison ou d'appartement avant vente, mise en location ou état des lieux de sortie à Bruxelles et environs. Cuisine, sanitaires, vitres, sols. Devis sous 48 h.
+description: "Remise en état de maison ou d'appartement avant vente, location ou état des lieux à Bruxelles : cuisine, sanitaires, vitres et sols. Devis sous 48 h."
 category: logement
 alsoIn: []
 order: 1

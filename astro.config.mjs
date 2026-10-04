@@ -14,6 +14,7 @@ export default defineConfig({
   build: { format: 'directory' },
 
   // Pages are static; only the contact page and its form action run on the Node server.
+  // server.mjs wraps the handler to add caching and security headers.
   adapter: node({ mode: 'standalone' }),
 
   env: {

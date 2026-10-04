@@ -1,7 +1,7 @@
 ---
 title: Parties communes d'immeuble
 summary: Entretien des halls, escaliers et parties communes pour les syndics et copropriétés.
-description: Nettoyage des parties communes d'immeuble à Bruxelles et environs pour syndics et copropriétés. Halls d'entrée, escaliers, ascenseurs, vitres et local poubelles, en passage régulier.
+description: "Nettoyage des parties communes d'immeuble à Bruxelles pour syndics et copropriétés : halls, escaliers, ascenseurs et local poubelles."
 category: professionnels
 alsoIn: []
 order: 8

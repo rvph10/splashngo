@@ -6,5 +6,5 @@ export const GET: APIRoute = ({ site }) =>
   new Response(
     settings.preview
       ? 'User-agent: *\nDisallow: /\n'
-      : `User-agent: *\nAllow: /\n\nSitemap: ${new URL('/sitemap.xml', site)}\n`,
+      : `User-agent: *\nAllow: /\nDisallow: /_actions/\n\nSitemap: ${new URL('/sitemap.xml', site)}\n`,
   );

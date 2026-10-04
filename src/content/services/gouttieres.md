@@ -1,7 +1,7 @@
 ---
 title: Gouttières
 summary: Vidange et nettoyage de gouttières, à toutes les hauteurs.
-description: Vidange et nettoyage de gouttières à toutes les hauteurs à Bruxelles et environs. Feuilles, mousse et débris retirés, descentes contrôlées pour éviter débordements et infiltrations.
+description: "Vidange et nettoyage de gouttières à toutes hauteurs à Bruxelles et environs. Feuilles, mousse et débris retirés, descentes contrôlées. Devis sous 48 h."
 category: exterieur
 alsoIn: []
 order: 5
