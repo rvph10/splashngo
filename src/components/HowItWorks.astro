@@ -1,0 +1,140 @@
+---
+// Three steps that advance automatically every 4 s (progress line) and can be
+// clicked; the image above the stats cross-fades with the active step.
+import { Image } from 'astro:assets';
+import AnimatedHeading from './AnimatedHeading.astro';
+import { steps, stats } from '../data/content';
+
+interface Props {
+  accent?: 'accent' | 'highlight';
+  showStats?: boolean;
+  /** Gap between heading and intro. */
+  titleGap?: number;
+}
+const { accent = 'accent', showStats = false, titleGap = 24 } = Astro.props;
+---
+
+<section class="section how" id="etapes">
+  <div class="container how__inner">
+    <div class="section-title" style={`--max:597px; gap:${titleGap}px`} data-reveal>
+      <AnimatedHeading class="h2" text="Comment ça marche" />
+      <p class="lead">De votre demande à l'intervention, trois étapes simples et un seul interlocuteur.</p>
+    </div>
+
+    <div class="steps" data-steps style={`--accent: var(--color-${accent})`}>
+      <div class="steps__list" role="tablist" aria-label="Les étapes" data-reveal>
+        {steps.map((step, i) => (
+          <button class="step" type="button" role="tab" aria-selected={i === 0 ? 'true' : 'false'}>
+            <span class="step__title"><span>{i + 1}.</span> {step.title}</span>
+            <span class="step__text">{step.text}</span>
+            <span class="step__line"><span></span></span>
+          </button>
+        ))}
+      </div>
+
+      <div class="steps__media" data-reveal>
+        <div class="shape steps__images" style="--shape:url('/shapes/cols-9-wide.svg')" data-zoom>
+          {steps.map((step, i) => (
+            <Image
+              src={step.image}
+              alt=""
+              class:list={[i === 0 && 'is-active']}
+              widths={[600, 1200, 2352].filter((w) => w <= step.image.width)}
+              sizes="(min-width: 1200px) 1176px, calc(100vw - 40px)"
+            />
+          ))}
+        </div>
+
+        {showStats && (
+          <dl class="stats">
+            {stats.map((s) => (
+              <div>
+                <dt class="h4">{s.value}{s.suffix}</dt>
+                <dd>{s.label}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const STEP_MS = 4000;
+  document.querySelectorAll<HTMLElement>('[data-steps]').forEach((root) => {
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('.step')];
+    const images = [...root.querySelectorAll<HTMLImageElement>('.steps__images img')];
+    let current = 0;
+    let timer = 0;
+
+    const show = (index: number) => {
+      current = index;
+      tabs.forEach((tab, i) => tab.setAttribute('aria-selected', String(i === index)));
+      images.forEach((img, i) => img.classList.toggle('is-active', i === index));
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => show((current + 1) % tabs.length), STEP_MS);
+    };
+
+    tabs.forEach((tab, i) => tab.addEventListener('click', () => show(i)));
+
+    // Start cycling once the section is on screen.
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { show(current); io.disconnect(); }
+    });
+    io.observe(root);
+  });
+</script>
+
+<style>
+  .how { padding-bottom: var(--section-space); }
+  .how__inner { display: flex; flex-direction: column; align-items: center; gap: 58px; }
+  .steps { display: flex; flex-direction: column; gap: 80px; width: 100%; max-width: 1176px; }
+
+  .steps__list { display: flex; justify-content: space-between; }
+  .step {
+    position: relative; display: flex; flex-direction: column; gap: 8px;
+    width: 319px; padding: 0 0 16px; border: 0; background: none; text-align: left;
+  }
+  .step__title { display: flex; gap: 8px; font-size: 20px; font-weight: 600; line-height: 1.56; }
+  .step__text { font-size: 20px; font-weight: 500; line-height: 1.56; color: var(--color-muted); }
+  .step__title, .step__text { opacity: 0.5; transition: opacity 0.3s; }
+  .step[aria-selected='true'] :is(.step__title, .step__text) { opacity: 1; }
+  .step__line {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+  }
+  .step__line span { display: block; width: 0; height: 100%; background: var(--accent); }
+  .step[aria-selected='true'] .step__line span { animation: step-progress 4s linear forwards; }
+  @keyframes step-progress { to { width: 100%; } }
+
+  .steps__media { position: relative; }
+  .steps__images { aspect-ratio: 4704 / 2840; background: var(--color-white); }
+  .steps__images img { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s var(--ease-out), transform 1.2s var(--ease-out); }
+  .steps__images img:first-child, .steps__images img.is-active { opacity: 1; }
+
+  .stats {
+    position: absolute; left: 0; right: 0; bottom: 0; margin: 0;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 42px 67px; border-radius: var(--radius-lg);
+    background: var(--color-primary); color: var(--color-white);
+  }
+  .stats > div { padding-block: 2px; }
+  .stats dd { margin: 0; font-size: 20px; font-weight: 500; line-height: 1.56; }
+
+  @media (max-width: 1199.98px) {
+    .how__inner { gap: 40px; }
+    .steps { gap: 40px; }
+    .steps__list { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 40px; }
+    .step { width: auto; }
+    .stats { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; padding: 30px 40px; }
+  }
+  @media (max-width: 767.98px) {
+    .how__inner { gap: 32px; }
+    .how .section-title { align-items: flex-start; text-align: left; }
+    .steps { gap: 30px; }
+    .steps__list { display: flex; flex-direction: column; gap: 16px; }
+    .stats { gap: 24px; margin-top: 24px; padding: 20px; }
+    .stats dd { font-size: 16px; font-weight: 400; }
+  }
+</style>

@@ -1,0 +1,45 @@
+---
+// Single-open accordion built on <details name="…"> (no JavaScript needed).
+import Icon from './Icon.astro';
+import { frenchSpacing } from '../lib/typography';
+
+interface Props {
+  items: { question: string; answer: string }[];
+}
+const { items } = Astro.props;
+---
+
+<div class="faq">
+  {items.map((item, i) => (
+    <details name="faq" open={i === 0} data-reveal>
+      <summary>
+        <h3 class="h5">{frenchSpacing(item.question)}</h3>
+        <Icon name="chevron-down" size={20} class="faq__icon" />
+      </summary>
+      <p class="text-body">{frenchSpacing(item.answer)}</p>
+    </details>
+  ))}
+</div>
+
+<style>
+  .faq { width: 100%; max-width: 912px; margin-inline: auto; }
+  /* 1px less bottom padding: Framer drew this border inside the box. */
+  details { padding: 32px 16px 31px; border-bottom: 1px solid var(--color-line); }
+  summary { display: flex; justify-content: space-between; align-items: flex-start; gap: 0; cursor: pointer; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  .faq__icon { flex: none; margin-top: 10px; transition: transform 0.3s; }
+  details[open] .faq__icon { transform: rotate(180deg); }
+  details p { max-width: 788px; padding-top: 16px; }
+
+  /* Smooth open/close where supported (Chromium 131+). */
+  @supports (interpolate-size: allow-keywords) {
+    details { interpolate-size: allow-keywords; }
+    details::details-content { height: 0; overflow: clip; transition: height 0.4s var(--ease-out), content-visibility 0.4s allow-discrete; }
+    details[open]::details-content { height: auto; }
+  }
+
+  @media (max-width: 1199.98px) {
+    details { padding: 16px 12px 15px; }
+    .faq__icon { margin-top: 6px; }
+  }
+</style>

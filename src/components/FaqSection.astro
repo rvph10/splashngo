@@ -1,0 +1,68 @@
+---
+import AnimatedHeading from "./AnimatedHeading.astro";
+import Faq from "./Faq.astro";
+import { frenchSpacing } from "../lib/typography";
+
+interface Props {
+  title: string;
+  description?: string;
+  items: { question: string; answer: string }[];
+  id?: string;
+  /** Space between the heading and its intro text (24px on the homepage, 14px elsewhere). */
+  titleGap?: number;
+}
+const { title, description, items, id, titleGap = 24 } = Astro.props;
+---
+
+<section class="section faq-section" id={id}>
+  <div class="container faq-section__inner">
+    <div
+      class="section-title"
+      style={`--max:717px; gap:${titleGap}px`}
+      data-reveal
+    >
+      <AnimatedHeading class="h2" text={title} />
+      {description && <p class="lead">{frenchSpacing(description)}</p>}
+    </div>
+    <Faq items={items} />
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    padding-top: var(--section-space);
+    padding-bottom: 130px;
+  }
+  .faq-section__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 58px;
+  }
+
+  @media (max-width: 1199.98px) {
+    .faq-section {
+      padding-bottom: 90px;
+    }
+    .faq-section__inner {
+      gap: 40px;
+    }
+    .section-title p {
+      max-width: 90%;
+    }
+  }
+  @media (max-width: 767.98px) {
+    .faq-section {
+      padding-bottom: 70px;
+    }
+    .faq-section__inner {
+      gap: 32px;
+    }
+    .section-title {
+      align-items: flex-start;
+      text-align: left;
+    }
+    .section-title p {
+      max-width: none;
+    }
+  }
+</style>

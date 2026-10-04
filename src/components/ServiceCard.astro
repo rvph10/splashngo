@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  service: CollectionEntry<'services'>;
+  /** Card colour at rest: white on tinted sections, tinted on white sections. */
+  tone?: 'white' | 'surface';
+}
+const { service, tone = 'white' } = Astro.props;
+const { title, summary, icon } = service.data;
+---
+
+<a class:list={['service-card arched', `service-card--${tone}`]} href={`/services/${service.id}`} data-reveal>
+  <Image src={icon} alt="" width={240} />
+  <span class="service-card__text">
+    <h3 class="h5">{title}</h3>
+    <span class="text-sm">{summary}</span>
+  </span>
+</a>
+
+<style>
+  .service-card {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+    padding: 84px 40px; text-align: center;
+    background: var(--color-white);
+    transition: background-color 0.3s;
+  }
+  .service-card--surface { background: var(--color-surface); }
+  .service-card:hover, .service-card:focus-visible { background: var(--color-accent); }
+  .service-card img { width: 120px; height: 122px; object-fit: cover; }
+  .service-card__text { display: flex; flex-direction: column; gap: 4px; }
+
+  @media (max-width: 1199.98px) {
+    .service-card { gap: 13px; padding: 50px 40px; }
+    .service-card img { width: 96px; height: 98px; }
+  }
+</style>
