@@ -15,7 +15,7 @@ interface Props {
 
 const { title, description = site.description, header = 'light' } = Astro.props;
 const pageTitle = title ? `${title} | ${site.name}` : site.title;
-// Clean URL (the build writes /services/vitres.html, the site serves /services/vitres).
+// Clean canonical URL: no trailing slash, no index.html.
 const cleanPath = Astro.url.pathname.replace(/(index)?\.html$/, '').replace(/(.)\/$/, '$1') || '/';
 const canonical = new URL(cleanPath, Astro.site);
 const ogImage = new URL('/og-image.png', Astro.site);

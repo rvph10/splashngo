@@ -11,7 +11,7 @@ export default defineConfig({
   site: SITE_URL,
   // Clean URLs without trailing slash: /contact, /services/vitres.
   trailingSlash: 'never',
-  build: { format: 'file' },
+  build: { format: 'directory' },
 
   // Pages are static; only the contact page and its form action run on the Node server.
   adapter: node({ mode: 'standalone' }),
