@@ -1,0 +1,104 @@
+---
+import { getCollection, render } from 'astro:content';
+import { frenchSpacing } from '../../lib/typography';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AnimatedHeading from '../../components/AnimatedHeading.astro';
+import Button from '../../components/Button.astro';
+import Icon from '../../components/Icon.astro';
+import MaskedImage from '../../components/MaskedImage.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { site } from '../../data/site';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map((service) => ({ params: { slug: service.id }, props: { service } }));
+}
+
+const { service } = Astro.props;
+await render(service);
+// Markdown body with French spacing applied (content files use plain spaces).
+const body = frenchSpacing(service.rendered?.html ?? '');
+const { title, summary, description, image, included, faq } = service.data;
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="section service">
+    <div class="container service__inner">
+      <div class="service__top">
+        <div class="service__intro" data-reveal data-zone="fiche-service">
+          <div class="section-title">
+            <AnimatedHeading as="h1" class="h1" text={title} />
+            <p class="lead">{summary}</p>
+          </div>
+          <Button href={`/contact?service=${service.id}`} label="Demander un devis" icon="mail-outline" />
+        </div>
+        <MaskedImage class="service__image" src={image} alt={title} shape="cols-9-wide" sizes="(min-width: 1200px) 1176px, 100vw" loading="eager" />
+      </div>
+
+      <div class="service__bottom">
+        <div class="service__body">
+          {included.length > 0 && (
+            <div class="service__included" data-reveal>
+              <h2 class="h5">Ce que comprend le service</h2>
+              <ul class="check-list">
+                {included.map((item) => <li><Icon name="check" />{item}</li>)}
+              </ul>
+            </div>
+          )}
+          <div class="prose" data-reveal set:html={body} />
+          <Button class="service__back" href="/services" label="Retour aux services" icon="arrow-left" />
+        </div>
+        <aside class="call-card arched" data-reveal data-zone="fiche-service">
+          <h2 class="h4">Une question&nbsp;?</h2>
+          <p>Appelez-nous ou écrivez-nous sur WhatsApp, avec quelques photos si possible. Nous vous répondons rapidement.</p>
+          <Button href={site.phone.href} label={site.phone.label} />
+          <Button href={site.whatsapp.href} label="Écrire sur WhatsApp" icon="whatsapp" />
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  {faq.length > 0 && <FaqSection title="Questions fréquentes" items={faq} titleGap={14} />}
+</BaseLayout>
+
+<style>
+  .service { padding-block: 190px 108px; }
+  .service__inner { display: flex; flex-direction: column; gap: 92px; max-width: 1176px; }
+  .service__top { display: flex; flex-direction: column; gap: 92px; }
+  .service__intro { display: flex; flex-direction: column; align-items: center; gap: 32px; }
+  .service__intro .section-title { gap: 16px; }
+  .service__intro .section-title p { max-width: 422px; }
+  .service__image { aspect-ratio: 4704 / 2840; }
+
+  .service__bottom { display: flex; align-items: flex-start; gap: 80px; }
+  .service__body { display: flex; flex-direction: column; align-items: flex-start; gap: 30px; max-width: 676px; }
+  .service__included { display: flex; flex-direction: column; gap: 20px; }
+
+  .call-card {
+    position: sticky; top: 24px; flex: none; width: 420px;
+    display: flex; flex-direction: column; align-items: center; gap: 16px;
+    padding: 84px 37px; background: var(--color-accent); text-align: center;
+  }
+  .call-card p { max-width: 346px; margin-top: -9px; font-size: 14px; font-weight: 500; line-height: 1.56; opacity: 0.76; }
+
+
+  @media (max-width: 1199.98px) {
+    .service { padding-block: 170px 80px; }
+    .service__inner { gap: 40px; }
+    .service__top { gap: 50px; }
+    .service__intro { gap: 20px; }
+    .service__bottom { gap: 30px; }
+    .call-card { width: 306px; padding: 60px 20px; }
+    .call-card .h4 { font-size: 32px; }
+  }
+  @media (max-width: 767.98px) {
+    .service { padding-block: 120px 60px; }
+    .service__inner { gap: 32px; }
+    .service__top { gap: 40px; }
+    .service__intro { gap: 32px; }
+    .service__bottom { flex-direction: column; gap: 40px; }
+    .service__body { gap: 32px; }
+    .call-card { position: static; width: 100%; }
+    .call-card .h4 { font-size: 28px; line-height: 1.25; }
+  }
+</style>

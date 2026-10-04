@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AnimatedHeading from '../components/AnimatedHeading.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import MaskedImage from '../components/MaskedImage.astro';
+import FaqSection from '../components/FaqSection.astro';
+import Icon from '../components/Icon.astro';
+import { faqs } from '../data/content';
+import { getServiceGroups } from '../lib/services';
+import recover from '../assets/images/services/recover-your-time.png';
+
+const groups = await getServiceGroups();
+
+const benefits = [
+  {
+    icon: 'clock',
+    title: 'Un devis sous 48 heures',
+    text: 'Décrivez votre besoin, ajoutez quelques photos si possible, et recevez un devis précis et adapté à votre situation.',
+  },
+  {
+    icon: 'badge',
+    title: 'Un travail contrôlé',
+    text: "Nous vérifions le résultat avec vous en fin d'intervention. Si un détail ne va pas, nous le reprenons.",
+  },
+] as const;
+---
+
+<BaseLayout title="Nos services" description="Tous les services de nettoyage Splashngo à Bruxelles et dans ses environs : logement, extérieur et locaux professionnels. Devis sous 48 heures.">
+  <section class="section services-list">
+    <div class="container services-list__inner">
+      <div class="section-title" style="--max:579px" data-reveal>
+        <AnimatedHeading as="h1" class="h2" text="Nos services" />
+        <p class="lead">Logement, extérieur ou locaux professionnels&nbsp;: choisissez le service qui correspond à votre besoin, nous nous occupons du reste.</p>
+      </div>
+      {groups.map((group) => (
+        <div class="services-list__group" id={group.id}>
+          <div class="services-list__heading" data-reveal>
+            <h2 class="h4">{group.title}</h2>
+            <p class="lead">{group.intro}</p>
+          </div>
+          <div class="services-list__grid">
+            {group.services.map((service) => <ServiceCard service={service} tone="surface" />)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section recover">
+    <div class="container recover__inner">
+      <MaskedImage class="recover__img" src={recover} alt="Matériel de nettoyage prêt pour une intervention" shape="cols-6-d" sizes="(min-width: 1200px) 611px, 100vw" />
+      <div class="recover__content">
+        <div class="recover__title" data-reveal>
+          <AnimatedHeading class="h2" text="Simple du début à la fin" />
+          <p class="lead">Un seul interlocuteur, un devis clair et un travail vérifié avec vous.</p>
+        </div>
+        <ul class="recover__list">
+          {benefits.map((b) => (
+            <li data-reveal>
+              <span class="recover__icon"><Icon name={b.icon} /></span>
+              <div>
+                <h3 class="h6">{b.title}</h3>
+                <p class="text-body">{b.text}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection {...faqs.services} titleGap={14} />
+</BaseLayout>
+
+<style>
+  .services-list { padding-block: 190px 72px; }
+  .services-list__inner { display: flex; flex-direction: column; gap: 72px; }
+  .services-list .section-title { gap: 16px; }
+  .services-list__group { display: flex; flex-direction: column; gap: 32px; scroll-margin-top: 140px; }
+  .services-list__heading { display: flex; flex-direction: column; gap: 8px; }
+  .services-list__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px 24px; }
+
+
+  .recover { padding-bottom: 124px; }
+  .recover__inner { display: flex; justify-content: center; align-items: center; gap: 84px; }
+  .recover__img { flex: none; width: 611px; aspect-ratio: 2444 / 1928; }
+  .recover__content { display: flex; flex-direction: column; gap: 66px; max-width: 511px; }
+  .recover__title { display: flex; flex-direction: column; gap: 14px; }
+  .recover__title p { max-width: 459px; }
+  .recover__list { display: flex; flex-direction: column; gap: 32px; padding: 0; list-style: none; }
+  .recover__list li { display: flex; gap: 24px; }
+  .recover__list li > div { display: flex; flex-direction: column; gap: 6px; }
+  .recover__icon {
+    display: grid; place-items: center; flex: none; width: 56px; height: 56px; padding: 13px;
+    border-radius: 14px; background: var(--color-accent); color: var(--color-white);
+  }
+  .recover__icon :global(svg) { width: 30px; height: 30px; }
+
+  @media (max-width: 1199.98px) {
+    .services-list { padding-block: 170px 70px; }
+    .services-list__inner { gap: 40px; }
+    .services-list__grid { grid-template-columns: repeat(2, 1fr); gap: 28px 20px; }
+    .recover { padding-bottom: 80px; }
+    .recover__inner { flex-direction: column; align-items: stretch; gap: 40px; }
+    .recover__img { width: 100%; }
+    .recover__content { max-width: none; gap: 32px; }
+    .recover__list { gap: 24px; }
+    .recover__list li { gap: 16px; }
+    .recover__icon { width: 44px; height: 44px; padding: 10px; border-radius: 10px; }
+    .recover__icon :global(svg) { width: 24px; height: 24px; }
+  }
+  @media (max-width: 767.98px) {
+    .services-list { padding-block: 120px 60px; }
+    .services-list__inner { gap: 32px; }
+    .services-list__grid { grid-template-columns: 1fr; gap: 24px; }
+    .recover { padding-bottom: 60px; }
+    .recover__inner { gap: 30px; }
+    .recover__content { gap: 30px; }
+  }
+</style>
