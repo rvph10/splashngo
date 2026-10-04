@@ -1,0 +1,21 @@
+---
+// Image clipped by one of the scalloped shapes in /public/shapes.
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  shape: string;      // file name in /public/shapes, without .svg
+  sizes: string;
+  zoom?: boolean;     // scale 1.1 → 1 when scrolled into view
+  class?: string;
+  loading?: 'lazy' | 'eager';
+}
+const { src, alt, shape, sizes, zoom = true, class: className, loading = 'lazy', ...attrs } = Astro.props;
+const widths = [400, 800, 1200, 1600, 2400].filter((w) => w <= src.width);
+---
+
+<div class:list={['shape', className]} style={`--shape:url('/shapes/${shape}.svg')`} data-zoom={zoom ? '' : undefined} {...attrs}>
+  <Image src={src} alt={alt} widths={widths.length ? widths : [src.width]} sizes={sizes} loading={loading} />
+</div>

@@ -1,0 +1,17 @@
+---
+// Blue button with a white icon tile that expands on hover ("Demander un devis", "Retour aux services").
+import Icon from './Icon.astro';
+
+interface Props {
+  href: string;
+  label: string;
+  icon?: 'phone' | 'arrow-left' | 'whatsapp' | 'mail-outline';
+  class?: string;
+}
+const { href, label, icon = 'phone', class: className, ...attrs } = Astro.props;
+---
+
+<a class:list={['btn', icon === 'arrow-left' && 'btn--back', className]} href={href} {...attrs}>
+  <Icon name={icon} class="btn__icon" />
+  <span>{label}</span>
+</a>

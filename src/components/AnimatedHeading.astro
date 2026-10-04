@@ -1,0 +1,20 @@
+---
+// Heading whose words blur in one after another when scrolled into view
+// (reproduces Framer's "appear / word" text effect; see scripts/motion.ts).
+import { frenchSpacing } from '../lib/typography';
+
+interface Props {
+  as?: 'h1' | 'h2' | 'h3';
+  text: string;
+  class?: string;
+}
+const { as: Tag = 'h2', class: className } = Astro.props;
+const text = frenchSpacing(Astro.props.text);
+const words = text.split(' ');
+---
+
+<Tag class={className} data-words aria-label={text}>
+  {words.map((word, i) => (
+    <Fragment><span class="word" style={`--i:${i}`} aria-hidden="true">{word}</span>{i < words.length - 1 && ' '}</Fragment>
+  ))}
+</Tag>
