@@ -15,7 +15,9 @@ interface Props {
 
 const { title, description = site.description, header = 'light' } = Astro.props;
 const pageTitle = title ? `${title} | ${site.name}` : site.title;
-const canonical = new URL(Astro.url.pathname, Astro.site);
+// Clean URL (the build writes /services/vitres.html, the site serves /services/vitres).
+const cleanPath = Astro.url.pathname.replace(/(index)?\.html$/, '').replace(/(.)\/$/, '$1') || '/';
+const canonical = new URL(cleanPath, Astro.site);
 const ogImage = new URL('/og-image.png', Astro.site);
 const { umami } = site;
 // Only count visits on the production domain (not localhost or previews).
