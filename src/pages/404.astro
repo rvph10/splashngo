@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import illustration from '../assets/images/404.svg';
+---
+
+<BaseLayout title="Page introuvable">
+  <section class="section not-found">
+    <div class="container not-found__inner">
+      <img class="not-found__img" src={illustration.src} width="704" height="336" alt="" data-reveal />
+      <div class="section-title" data-reveal>
+        <h1 class="h2">Cette page est introuvable</h1>
+        <p class="lead">Elle n'existe pas ou a été déplacée. Pas de panique, tout le reste du site est bien propre.</p>
+      </div>
+      <div class="not-found__actions" data-reveal>
+        <Button href="/" label="Retour à l'accueil" icon="arrow-left" />
+        <Button href="/services" label="Voir nos services" icon="arrow-left" class="not-found__services" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found { padding-block: 190px 120px; }
+  .not-found__inner { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+  .not-found__img { width: 100%; max-width: 560px; height: auto; }
+  .not-found .section-title { gap: 16px; max-width: 620px; }
+  .not-found__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .not-found__actions :global(.not-found__services) { background: var(--color-ink); }
+  .not-found__actions :global(.not-found__services .btn__icon) { rotate: 180deg; color: var(--color-accent); }
+
+  @media (max-width: 1199.98px) { .not-found { padding-block: 170px 90px; } }
+  @media (max-width: 767.98px) {
+    .not-found { padding-block: 120px 60px; }
+    .not-found__inner { gap: 28px; }
+  }
+</style>
