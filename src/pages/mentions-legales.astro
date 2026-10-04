@@ -1,0 +1,42 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { site } from '../data/site';
+import { company, host, legalUpdatedAt } from '../data/legal';
+---
+
+<LegalLayout title="Mentions légales" description="Mentions légales du site Splashngo : éditeur, coordonnées, hébergement et conditions d'utilisation." updatedAt={legalUpdatedAt}>
+  <h2>Éditeur du site</h2>
+  <p>
+    Le site {site.name} est édité par {company.name}, {company.legalForm}, qui exerce ses activités de nettoyage à Bruxelles et dans ses environs sous le nom commercial {site.name}.<br />
+    Siège&nbsp;: {company.address}<br />
+    Numéro d'entreprise (BCE)&nbsp;: {company.bce}<br />
+    Numéro de TVA&nbsp;: {company.vat}
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    E-mail&nbsp;: <a href={site.email.href}>{site.email.label}</a><br />
+    Téléphone et WhatsApp&nbsp;: <a href={site.phone.href}>{site.phone.label}</a>
+  </p>
+
+  <h2>Hébergement</h2>
+  <p>
+    Le site est conçu, hébergé et maintenu par {host.name}, {host.description}.<br />
+    Serveurs&nbsp;: {host.server}
+  </p>
+
+  <h2>Propriété intellectuelle</h2>
+  <p>L'ensemble des contenus de ce site (textes, images, logos, éléments graphiques) est protégé par le droit d'auteur et le droit des marques. Toute reproduction, représentation ou réutilisation, totale ou partielle, sans autorisation écrite préalable est interdite.</p>
+
+  <h2>Informations et responsabilité</h2>
+  <p>Les informations présentées sur ce site sont données à titre indicatif et peuvent être modifiées à tout moment. Elles ne constituent pas une offre ferme : seul le devis transmis après votre demande précise le contenu et le prix d'une intervention. Malgré le soin apporté à la mise à jour du site, {company.name} ne peut garantir l'absence d'erreurs ou d'interruptions et ne peut être tenue responsable des dommages résultant de l'utilisation du site.</p>
+
+  <h2>Liens externes</h2>
+  <p>Le site contient des liens vers des services tiers, comme WhatsApp ou Instagram. {company.name} n'exerce aucun contrôle sur ces services et n'est pas responsable de leur contenu ni de leur traitement des données personnelles.</p>
+
+  <h2>Données personnelles et cookies</h2>
+  <p>Le traitement de vos données personnelles est décrit dans notre <a href="/politique-de-confidentialite">politique de confidentialité</a>. Le site ne dépose aucun cookie.</p>
+
+  <h2>Droit applicable</h2>
+  <p>Les présentes mentions légales sont soumises au droit belge. En cas de litige, et à défaut d'accord amiable, les tribunaux belges compétents seront seuls compétents.</p>
+</LegalLayout>

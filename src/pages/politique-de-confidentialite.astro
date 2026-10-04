@@ -1,0 +1,81 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { site } from '../data/site';
+import { company, host, legalUpdatedAt } from '../data/legal';
+---
+
+<LegalLayout
+  title="Politique de confidentialité"
+  description="Comment Splashngo collecte, utilise et protège vos données personnelles, et comment exercer vos droits."
+  updatedAt={legalUpdatedAt}
+>
+  <p>Cette politique explique comment nous traitons vos données personnelles lorsque vous consultez ce site, nous contactez ou faites appel à nos services. Nous appliquons le Règlement général sur la protection des données (RGPD) et la loi belge du 30 juillet 2018 relative à la protection des personnes physiques à l'égard des traitements de données à caractère personnel.</p>
+
+  <h2>1. Responsable du traitement</h2>
+  <p>
+    {company.name}, {company.legalForm}, exploitant le nom commercial {site.name}<br />
+    Siège&nbsp;: {company.address}<br />
+    Numéro d'entreprise (BCE)&nbsp;: {company.bce}<br />
+    Contact pour toute question sur vos données&nbsp;: <a href={site.email.href}>{site.email.label}</a>
+  </p>
+
+  <h2>2. Données que nous collectons</h2>
+  <ul>
+    <li><strong>Formulaire de contact</strong>&nbsp;: nom, adresse e-mail, numéro de téléphone (facultatif), service souhaité et contenu de votre message.</li>
+    <li><strong>Échanges par téléphone, WhatsApp ou e-mail</strong>&nbsp;: vos coordonnées, le contenu de nos échanges et les photos que vous choisissez de nous envoyer.</li>
+    <li><strong>Interventions</strong>&nbsp;: adresse du lieu d'intervention, informations nécessaires à l'organisation du travail et, si vous êtes une entreprise, vos données de facturation.</li>
+    <li><strong>Données techniques</strong>&nbsp;: lors de la consultation du site, le serveur enregistre temporairement des informations techniques (adresse IP, date et heure, page demandée, navigateur) nécessaires à son fonctionnement et à sa sécurité.</li>
+    <li><strong>Statistiques de visite</strong>&nbsp;: des mesures d'audience anonymes, décrites au point 5.</li>
+  </ul>
+  <p>Les champs obligatoires du formulaire sont nécessaires pour répondre à votre demande. Sans ces informations, nous ne pouvons pas vous établir de devis.</p>
+
+  <h2>3. Pourquoi nous utilisons vos données</h2>
+  <ul>
+    <li><strong>Répondre à vos demandes et établir un devis</strong>&nbsp;: mesures précontractuelles prises à votre demande.</li>
+    <li><strong>Planifier et réaliser les interventions</strong>&nbsp;: exécution du contrat.</li>
+    <li><strong>Facturation et comptabilité</strong>&nbsp;: respect de nos obligations légales.</li>
+    <li><strong>Sécurité du site et prévention des abus</strong>&nbsp;: notre intérêt légitime à protéger le site et le formulaire.</li>
+    <li><strong>Statistiques de visite anonymes</strong>&nbsp;: notre intérêt légitime à comprendre comment le site est utilisé et à l'améliorer.</li>
+  </ul>
+  <p>Nous n'utilisons pas vos données pour vous envoyer de la publicité sans votre accord, et nous ne prenons aucune décision automatisée à votre sujet.</p>
+
+  <h2>4. Photos envoyées par WhatsApp</h2>
+  <p>Les photos que vous nous envoyez servent uniquement à évaluer le travail à réaliser et à établir votre devis. Nous ne les conservons pas&nbsp;: elles sont supprimées une fois le devis établi. Elles ne sont jamais publiées ni utilisées à d'autres fins. Évitez d'y faire figurer des personnes, des documents ou des informations personnelles qui ne sont pas nécessaires. Les échanges WhatsApp transitent par le service WhatsApp, qui applique sa propre politique de confidentialité.</p>
+
+  <h2>5. Statistiques de visite et cookies</h2>
+  <p>Ce site <strong>ne dépose aucun cookie</strong> et n'utilise aucun outil publicitaire ni de suivi tiers (pas de Google Analytics, pas de Meta Pixel).</p>
+  <p>Pour mesurer l'audience, nous utilisons Umami, un outil de statistiques respectueux de la vie privée, hébergé par {host.name} sur ses propres serveurs en Allemagne, et non par un service tiers. Umami ne dépose pas de cookie, ne conserve pas votre adresse IP et ne permet pas de vous identifier ni de vous suivre d'un site à l'autre. Il enregistre de façon anonyme les pages consultées, le site d'origine de la visite, le type d'appareil, le navigateur, le pays, ainsi que certaines actions sur le site&nbsp;: clic sur un lien de contact (téléphone, WhatsApp, e-mail, Instagram) ou de demande de devis, envoi du formulaire (uniquement le service choisi, jamais le contenu du message ni vos coordonnées) et ouverture d'une question de la FAQ.</p>
+
+  <h2>6. Destinataires de vos données</h2>
+  <p>Nous ne vendons ni ne louons vos données. Elles sont accessibles uniquement aux personnes qui en ont besoin pour traiter votre demande, ainsi qu'aux prestataires suivants, dans la limite de leur mission&nbsp;:</p>
+  <ul>
+    <li><strong>{host.name}</strong>, {host.description}, qui héberge le site, le formulaire et l'outil de statistiques sur des serveurs Hetzner situés en Allemagne&nbsp;;</li>
+    <li><strong>Resend</strong> (Resend, Inc.), le service qui envoie les e-mails générés par le formulaire&nbsp;: la notification de votre demande et l'e-mail de confirmation qui vous est adressé&nbsp;;</li>
+    <li><strong>Zoho Mail</strong> (Zoho Corporation), notre service de messagerie, où nous recevons et traitons vos demandes&nbsp;;</li>
+    <li><strong>WhatsApp</strong>, lorsque vous choisissez de nous contacter par ce moyen&nbsp;;</li>
+    <li>notre comptable, nos conseillers ou notre assureur, uniquement lorsque c'est nécessaire&nbsp;;</li>
+    <li>les autorités, lorsque la loi l'exige.</li>
+  </ul>
+  <p>Lorsqu'un prestataire traite des données en dehors de l'Espace économique européen, ce transfert est encadré par les garanties prévues par le RGPD, comme une décision d'adéquation ou les clauses contractuelles types de la Commission européenne.</p>
+
+  <h2>7. Durée de conservation</h2>
+  <ul>
+    <li><strong>Demandes de contact et devis non acceptés</strong>&nbsp;: au maximum deux ans après le dernier échange.</li>
+    <li><strong>Interventions réalisées et échanges liés</strong>&nbsp;: pendant la durée de la mission, puis au maximum cinq ans.</li>
+    <li><strong>Factures et documents comptables</strong>&nbsp;: dix ans, conformément à nos obligations légales.</li>
+    <li><strong>Photos WhatsApp</strong>&nbsp;: supprimées une fois le devis établi.</li>
+    <li><strong>Données techniques du serveur</strong>&nbsp;: le temps strictement nécessaire au fonctionnement et à la sécurité du site.</li>
+    <li><strong>Statistiques Umami</strong>&nbsp;: anonymes, elles peuvent être conservées sous forme agrégée.</li>
+  </ul>
+  <p>À l'issue de ces durées, les données sont supprimées ou rendues anonymes.</p>
+
+  <h2>8. Sécurité</h2>
+  <p>Le site est servi en HTTPS et le formulaire est protégé contre les envois automatisés. L'accès aux données est limité aux personnes qui en ont besoin. Aucun système n'est infaillible, mais nous prenons des mesures adaptées aux risques et, en cas de fuite de données, nous informons l'autorité de contrôle et les personnes concernées lorsque la loi l'impose.</p>
+
+  <h2>9. Vos droits</h2>
+  <p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, de portabilité et d'opposition au traitement de vos données. Pour exercer ces droits, écrivez-nous à <a href={site.email.href}>{site.email.label}</a> en précisant votre demande. Nous vous répondons dans un délai d'un mois, qui peut être prolongé dans les cas prévus par la loi. Si nous avons un doute raisonnable sur votre identité, nous pouvons vous demander une information complémentaire&nbsp;; n'envoyez pas spontanément de copie de votre carte d'identité.</p>
+  <p>Vous pouvez également introduire une réclamation auprès de l'Autorité de protection des données, rue de la Presse 35, 1000 Bruxelles (<a href="https://www.autoriteprotectiondonnees.be" rel="noopener">www.autoriteprotectiondonnees.be</a>).</p>
+
+  <h2>10. Modifications</h2>
+  <p>Nous pouvons modifier cette politique pour tenir compte d'une évolution de nos pratiques ou de la loi. La version en vigueur est toujours publiée sur cette page, avec sa date de mise à jour.</p>
+</LegalLayout>

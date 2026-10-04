@@ -1,0 +1,41 @@
+---
+// Shell for the legal pages (mentions légales, politique de confidentialité).
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  updatedAt?: string;
+}
+const { title, description, updatedAt } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="section legal">
+    <div class="container legal__inner">
+      <header class="legal__header" data-reveal>
+        {updatedAt && <p class="lead">Dernière mise à jour&nbsp;: {updatedAt}</p>}
+        <h1 class="h1">{title}</h1>
+      </header>
+      <div class="prose legal__content" data-reveal>
+        <slot />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal { padding-block: 190px 120px; }
+  .legal__inner { display: flex; flex-direction: column; align-items: center; gap: 72px; }
+  .legal__header { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+  .legal__content { width: 100%; max-width: 920px; }
+  .legal__content :global(a) { color: var(--color-primary); text-decoration: underline; }
+
+  @media (max-width: 1199.98px) {
+    .legal { padding-block: 170px 80px; }
+  }
+  @media (max-width: 767.98px) {
+    .legal { padding-block: 120px 80px; }
+    .legal__inner { gap: 40px; }
+  }
+</style>
