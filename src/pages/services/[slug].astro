@@ -21,11 +21,12 @@ await render(service);
 // Markdown body with French spacing applied (content files use plain spaces).
 const body = frenchSpacing(service.rendered?.html ?? '');
 const { title, summary, description, image, included, faq } = service.data;
+const heading = service.data.heading ?? title;
 const base = Astro.site!;
 const url = new URL(`/services/${service.id}`, base).href;
 const schemaImage = await getImage({ src: image, width: 1200, format: 'jpeg' });
 const schema = [
-  serviceSchema(base, { title, description, url, image: new URL(schemaImage.src, base).href }),
+  serviceSchema(base, { title: heading, description, url, image: new URL(schemaImage.src, base).href }),
   breadcrumbs([
     { name: 'Accueil', url: new URL('/', base).href },
     { name: 'Services', url: new URL('/services', base).href },
@@ -34,13 +35,13 @@ const schema = [
 ];
 ---
 
-<BaseLayout title={`${title} à Bruxelles`} description={description} schema={schema}>
+<BaseLayout title={`${heading} à Bruxelles`} description={description} schema={schema}>
   <section class="section service">
     <div class="container service__inner">
       <div class="service__top">
         <div class="service__intro" data-reveal data-zone="fiche-service">
           <div class="section-title">
-            <AnimatedHeading as="h1" class="h1" text={title} />
+            <AnimatedHeading as="h1" class="h1" text={heading} />
             <p class="lead">{summary}</p>
           </div>
           <Button href={`/contact?service=${service.id}`} label="Demander un devis" icon="mail-outline" />

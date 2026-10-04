@@ -1,7 +1,8 @@
 ---
 title: Gouttières
+heading: Nettoyage de gouttières et corniches
 summary: Vidange et nettoyage de gouttières, à toutes les hauteurs.
-description: "Vidange et nettoyage de gouttières à toutes hauteurs à Bruxelles et environs. Feuilles, mousse et débris retirés, descentes contrôlées. Devis sous 48 h."
+description: "Nettoyage et vidange de gouttières et corniches à toutes hauteurs à Bruxelles : feuilles, mousse et débris retirés, descentes contrôlées. Devis sous 48 h."
 category: exterieur
 alsoIn: []
 order: 5
@@ -48,9 +49,11 @@ faq:
       préparons un devis qui regroupe l'ensemble.
 ---
 
-Une gouttière bouchée déborde et abîme façades et fondations. Nous les vidons et les nettoyons, quelle que soit la hauteur.
+Une gouttière bouchée déborde et abîme façades et fondations. Nous vidons et nettoyons vos gouttières et corniches, quelle que soit la hauteur.
 
 ## Pourquoi entretenir ses gouttières
+
+En Belgique, on parle souvent de corniches pour désigner les gouttières qui courent le long du toit. Qu'il s'agisse d'une corniche en zinc, d'une gouttière pendante en PVC ou d'un chéneau, le principe reste le même : elles doivent rester dégagées pour évacuer l'eau.
 
 Les gouttières recueillent l'eau de pluie du toit et l'évacuent vers les descentes. En Belgique, où il pleut une bonne partie de l'année, elles sont sollicitées en permanence. Feuilles mortes, aiguilles de pin, mousse tombée du toit, branchettes, nids d'oiseaux et sédiments s'y accumulent peu à peu jusqu'à former un bouchon.
 

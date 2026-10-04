@@ -9,6 +9,8 @@ const services = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
+      // Page heading and <title> when it should differ from the short menu title (search wording).
+      heading: z.string().optional(),
       summary: z.string(), // used on cards and in menus
       description: z.string(), // meta description (~150 characters)
       category: z.enum(['logement', 'exterieur', 'professionnels']),

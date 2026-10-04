@@ -1,5 +1,6 @@
 ---
 title: Remise en état avant vente ou location
+heading: Remise en état après déménagement
 summary: Un nettoyage complet du logement avant une vente, une mise en location ou un état des lieux de sortie.
 description: "Remise en état de maison ou d'appartement avant vente, location ou état des lieux à Bruxelles : cuisine, sanitaires, vitres et sols. Devis sous 48 h."
 category: logement
@@ -53,7 +54,7 @@ faq:
       l'adresse et la date, nous nous occupons du reste.
 ---
 
-Un logement propre se vend et se loue plus facilement. Nous nettoyons tout le bien, des placards aux châssis, pour qu'il soit prêt pour une visite, une remise des clés ou un état des lieux.
+Un logement propre se vend et se loue plus facilement. Après un déménagement ou en fin de bail, nous nettoyons tout le bien, des placards aux châssis, pour qu'il soit prêt pour une visite, une remise des clés ou un état des lieux de sortie.
 
 ## Pourquoi faire appel à un professionnel pour une remise en état
 

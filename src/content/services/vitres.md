@@ -1,7 +1,8 @@
 ---
 title: Nettoyage de vitres
+heading: Lavage de vitres
 summary: Vitres, châssis et vitrines pour les particuliers et les professionnels.
-description: "Nettoyage de vitres, châssis, vérandas et vitrines à Bruxelles et environs, pour particuliers et professionnels. Passage ponctuel ou régulier."
+description: "Lavage de vitres à Bruxelles : vitres, châssis, vérandas et vitrines pour particuliers et professionnels, en passage ponctuel ou régulier."
 category: exterieur
 alsoIn:
   - professionnels
@@ -49,7 +50,7 @@ faq:
       régulier. Nous pouvons aussi planifier les passages en dehors de vos heures d'ouverture.
 ---
 
-Des vitres propres changent la lumière d'une pièce et l'image d'un commerce. Nous nettoyons vitres, châssis et vitrines, en intervention ponctuelle ou régulière.
+Des vitres propres changent la lumière d'une pièce et l'image d'un commerce. Votre laveur de vitres à Bruxelles s'occupe du lavage de vos vitres, châssis et vitrines, en intervention ponctuelle ou régulière.
 
 ## Des vitres nettes, sans traces
 

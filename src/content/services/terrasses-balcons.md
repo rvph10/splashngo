@@ -1,5 +1,6 @@
 ---
 title: Terrasses et balcons
+heading: Nettoyage de terrasses et balcons
 summary: Démoussage, nettoyage et sablage des terrasses et balcons.
 description: "Démoussage, nettoyage et sablage de terrasses et balcons à Bruxelles : pierre, carrelage et pavés débarrassés de la mousse et des taches."
 category: exterieur

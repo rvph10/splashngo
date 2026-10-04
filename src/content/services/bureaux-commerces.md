@@ -1,5 +1,6 @@
 ---
 title: Bureaux et commerces
+heading: Nettoyage de bureaux et commerces
 summary: Entretien de vos bureaux et de votre commerce, en passage ponctuel ou régulier.
 description: "Nettoyage de bureaux et de commerces à Bruxelles : postes de travail, sanitaires, cuisine, sols et vitrines, en passage ponctuel ou régulier."
 category: professionnels

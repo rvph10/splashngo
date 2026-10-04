@@ -1,5 +1,6 @@
 ---
 title: Panneaux solaires
+heading: Nettoyage de panneaux solaires
 summary: Des panneaux propres pour retrouver leur rendement.
 description: "Nettoyage de panneaux solaires à Bruxelles sans produit agressif : poussière, mousse et fientes retirées pour retrouver le rendement. Devis sous 48 h."
 category: exterieur
@@ -13,6 +14,12 @@ included:
   - Nettoyage des cadres
   - Contrôle visuel de l'état des panneaux
 faq:
+  - question: "Combien coûte un nettoyage de panneaux solaires ?"
+    answer: >-
+      Le prix dépend surtout du nombre de panneaux, du type de toit, de la hauteur du bâtiment et de l'état des
+      panneaux. Une petite installation sur une maison et une grande installation sur un bâtiment professionnel ne
+      demandent pas le même travail. Indiquez le nombre de panneaux et l'accès dans votre demande, avec une photo si
+      possible, et vous recevez un devis précis sous 48 heures, sans engagement.
   - question: "À quelle fréquence faut-il nettoyer ses panneaux ?"
     answer: >-
       Cela dépend surtout de leur environnement. Des panneaux situés près d'arbres, d'une route fréquentée, de champs
