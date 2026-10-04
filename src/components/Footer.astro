@@ -9,8 +9,8 @@ import { site, footerNav, socials } from '../data/site';
     <div class="footer__top">
       <div class="footer__about">
         <p>Nettoyage intérieur, extérieur et professionnel pour les particuliers et les entreprises, {site.area.phrase}.</p>
-        <a href="/" aria-label={`${site.name}, accueil`}>
-          <img src={logo.src} alt="" width="176" height="38" loading="lazy" />
+        <a href="/">
+          <img src={logo.src} alt={`${site.name}, accueil`} width="176" height="38" loading="lazy" />
         </a>
       </div>
       <nav class="footer__nav" aria-label="Pied de page">
@@ -28,7 +28,7 @@ import { site, footerNav, socials } from '../data/site';
       <p>© {new Date().getFullYear()} {site.name}. Tous droits réservés.</p>
       <ul class="footer__socials">
         {socials.map((s) => (
-          <li><a href={s.href} aria-label={s.label}><Icon name={s.icon} size={21} /></a></li>
+          <li><a href={s.href}><Icon name={s.icon} size={21} /><span class="sr-only">{s.label}</span></a></li>
         ))}
       </ul>
     </div>

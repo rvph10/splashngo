@@ -26,7 +26,7 @@ const current = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || 
       </div>
       <ul class="topbar__socials">
         {socials.map((s) => (
-          <li><a href={s.href} aria-label={s.label}><Icon name={s.icon} size={12} /></a></li>
+          <li><a href={s.href}><Icon name={s.icon} size={12} /><span class="sr-only">{s.label}</span></a></li>
         ))}
       </ul>
     </div>
@@ -34,8 +34,8 @@ const current = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || 
 
   <nav class="nav" aria-label="Navigation principale">
     <div class="container nav__bar">
-      <a class="nav__logo" href="/" aria-label={`${site.name}, accueil`}>
-        <img src={logo.src} alt="" width="176" height="38" />
+      <a class="nav__logo" href="/">
+        <img src={logo.src} alt={`${site.name}, accueil`} width="176" height="38" />
       </a>
 
       <div class="nav__desktop">
